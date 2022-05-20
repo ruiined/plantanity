@@ -25,10 +25,10 @@ jobs:
         with:
           mongodb-version: "5.0"
 
-      - name: Testing
-        run: |
-          npm install
-          npm run test
+      # - name: Testing
+      #   run: |
+      #     npm install
+      #     npm run test
         
       # - name: Cypress Run
       #   uses: cypress-io/github-action@v2
