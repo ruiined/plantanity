@@ -8,7 +8,7 @@ const removeTask = async (req, res) => {
   let task = encodeURI(req.query.task);
   const client = await clientPromise;
   const db = client.db("plantanity");
-  const tasks = await db.collection("tasks").remove({ _id: ObjectId(task) });
+  const tasks = await db.collection("tasks").deleteOne({ _id: ObjectId(task) });
   res.status(200).json({ tasks });
 };
 

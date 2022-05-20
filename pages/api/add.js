@@ -1,4 +1,3 @@
-import { ConsoleWriter } from "istanbul-lib-report";
 import clientPromise from "../../lib/mongodb";
 
 const addTask = async (req, res) => {
