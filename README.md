@@ -1,4 +1,6 @@
-# 🌱 Plantanity
+# 🪴 Plantanity
+
+Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in progress_)
 
 1. 🌱 Plant the seed { **_goals_** }
 2. 💧 Water it { **_complete tasks_** }
@@ -56,6 +58,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Mongoose](https://mongoosejs.com) | Programming library that creates a connection between MongoDB and Express
 - [Axios](https://github.com/axios/axios) | Http client
 - [Prettier](https://github.com/prettier/prettier) | Code formatter
+- [ESLint](https://eslint.org/) | Linting utility
 
 ### Component Libraries
 
