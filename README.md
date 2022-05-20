@@ -11,18 +11,15 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 
 ## Technologies
 
-### MERN Stack
+### Stack
 
 - [MongoDB](https://www.mongodb.com/) | Document-oriented NoSQL database
-- [Express](https://expressjs.com/) | Back-end web application framework
+- [Next.js](https://nextjs.org/) | React framework for developing single page Javascript applications
 - [React](https://reactjs.org) | Front-end JavaScript library for building user interfaces
 - [Node.js](https://nodejs.dev/) | Back-end JavaScript runtime environmen
 
 ### &&
 
-- [Next.js](https://nextjs.org/) | React framework for developing single page Javascript applications
-- [Nodemon](https://nodemon.io/) | Utility for Node.js that monitors for changes and automatically restarts the server
-- [Mongoose](https://mongoosejs.com) | Programming library that creates a connection between MongoDB and Express
 - [Axios](https://github.com/axios/axios) | Http client
 - [Prettier](https://github.com/prettier/prettier) | Code formatter
 - [ESLint](https://eslint.org/) | Linting utility
