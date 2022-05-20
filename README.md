@@ -1,8 +1,9 @@
 # 🌱 Plantanity
-1. 🌱 Plant the seed { **_goals_** } 
-2. 💧 Water it [ **_complete tasks_** ] 
-3. 🌻 Grow it [ **_unlock more seeds_** ]
-4. 🌹 Plant more to have your own unique virtual garden representing your **_achievements_** ✨🌿
+
+1. 🌱 Plant the seed { **_goals_** }
+2. 💧 Water it { **_complete tasks_** }
+3. 🌻 Grow it { **_unlock more seeds_** }
+4. 🌹 Plant more to have your own unique virtual garden representing your { **_achievements_** } ✨🌿
 
 ## Technologies
 
