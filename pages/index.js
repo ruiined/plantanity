@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-// import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -44,10 +43,10 @@ const Home = () => {
         <meta name="description" content="Grow your dreams" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <header>
-        <div className="bg-white shadow-lg max-w-6xl mx-auto px-4 flex justify-between flex space-x-7 stickyl">
-          <h1 className="flex items-center py-4 px-2 font-semibold text-gray-700 text-lg">
+        <div className="bg-white shadow-lg mx-auto px-4 flex justify-between flex space-x-7 stickyl">
+          <h1 className="flex items-center py-4 px-2 font-semibold text-gray-700 text-2xl">
             <a href="/">Plantanity</a>
           </h1>
           {/* navigation items */}
