@@ -1,4 +1,4 @@
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "../../../lib/mongodb";
 
 export const getTasks = async (req, res) => {
   const client = await clientPromise;

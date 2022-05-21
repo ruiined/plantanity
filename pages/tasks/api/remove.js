@@ -1,5 +1,5 @@
 import { ObjectId } from "bson";
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "../../../lib/mongodb";
 
 export const removeTask = async (req, res) => {
   if (!req.query.task) {
