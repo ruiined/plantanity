@@ -22,20 +22,16 @@ export const Tasks = () => {
     axios.get("/api/remove?task=" + rtask).then(() => loadTasks());
   };
 
-  // let editTask = (etask) => {
-  //   setLoading(true);
-  //   axios.get("/api/edit?task=" + etask).then(() => loadTasks());
-  // };
+  let editTask = (etask, taskId) => {
+    axios
+      .get("/api/edit?task=" + etask + "&id=" + taskId)
+      .then(() => loadTasks());
+  };
 
   let completeTask = (ctask) => {
     setLoading(true);
     axios.get("../api/complete?task=" + ctask).then(() => loadTasks());
   };
-
-  // let completeTask = (ctask) => {
-  //   setLoading(true);
-  //   axios.get("../api/complete?task=" + ctask).then(() => loadTasks());
-  // };
 
   let loadTasks = () => {
     axios.get("/api/list").then((res) => {
@@ -56,31 +52,30 @@ export const Tasks = () => {
         {loading ? (
           <Image alt="Loading" width={61} height={61} src="/loader.gif" />
         ) : (
-          <form className="" onSubmit={addTask}>
+          <form onSubmit={addTask}>
             <input
-              className=""
+              className="h-16"
               type="text"
               name="task"
               autoComplete="off"
               autoFocus={true}
               onChange={changeHandler}
-              placeholder="Enter your task here!"
+              placeholder="Enter your task here"
             />
           </form>
         )}
-        <div className="columns-3xs gap-8">
+        <div className="columns-4">
           {data.map((item) => (
-            <div key={item.key} className="hover:bg-gray-100">
-              <a
-                alt="Complete"
-                className="w-full aspect-video"
-                onClick={() => completeTask(item._id)}
+            <div key={item.key} className="hover:bg-gray-100 h-14 p-3">
+              <div
+                contentEditable
+                onBlur={(e) => editTask(e.currentTarget.textContent, item._id)}
               >
-                <p>{item.title}</p>
-              </a>
+                {item.title}
+              </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-400 hover:text-red-500 hover:cursor-pointer"
+                className="h-6 w-6 text-gray-300 hover:text-red-500 hover:cursor-pointer float-right"
                 fill="none"
                 viewBox="0 0 30 30"
                 stroke="currentColor"
@@ -95,12 +90,12 @@ export const Tasks = () => {
               </svg>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-400 hover:text-red-500 hover:cursor-pointer"
+                className="h-6 w-6 text-gray-300 hover:text-blue-500 hover:cursor-pointer float-right"
                 fill="none"
                 viewBox="0 0 30 30"
                 stroke="currentColor"
                 strokeWidth={2}
-                // onClick={() => editTask(item._id)}
+                onClick={() => completeTask(item._id)}
               >
                 <path
                   strokeLinecap="round"
