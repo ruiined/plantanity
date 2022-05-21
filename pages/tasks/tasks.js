@@ -23,6 +23,7 @@ export const Tasks = () => {
   };
 
   let editTask = (etask, taskId) => {
+    setLoading(true);
     axios
       .get("/api/edit?task=" + etask + "&id=" + taskId)
       .then(() => loadTasks());
@@ -66,9 +67,10 @@ export const Tasks = () => {
         )}
         <div className="columns-4">
           {data.map((item) => (
-            <div key={item.key} className="hover:bg-gray-100 h-14 p-3">
+            <div key={item._id} className="hover:bg-gray-100 h-14 p-3">
               <div
                 contentEditable
+                suppressContentEditableWarning={true}
                 onBlur={(e) => editTask(e.currentTarget.textContent, item._id)}
               >
                 {item.title}
