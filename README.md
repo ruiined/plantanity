@@ -4,13 +4,13 @@
 
 Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in progress_)
 
-🌱 Plant the seed { **_goals_** }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🌱 Plant the seed { **_goals_** }
 
-💧 Water it { **_complete tasks_** }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;💧 Water it { **_complete tasks_** }
 
-🌻 Grow it { **_unlock more seeds_** }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🌻 Grow it { **_unlock more seeds_** }
 
-🌹 Plant more to have your own unique virtual garden representing your { **_achievements_** }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🌹 Plant more to have your own unique virtual garden representing your { **_achievements_** }
 
 ## Technologies
 
