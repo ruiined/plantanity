@@ -17,7 +17,7 @@ const Home = () => {
       <main className="w-full h-full flex-grow p-3 overflow-auto">
         <Tasks />
       </main>
-
+      
       <Footer />
     </div>
   );
