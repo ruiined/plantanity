@@ -22,6 +22,11 @@ export const Tasks = () => {
     axios.get("../api/remove?task=" + rtask).then(() => loadTasks());
   };
 
+  let completeTask = (ctask) => {
+    setLoading(true);
+    axios.get("../api/complete?task=" + ctask).then(() => loadTasks());
+  };
+
   let loadTasks = () => {
     axios.get("../api/list").then((res) => {
       setData(res.data.tasks);
@@ -57,9 +62,9 @@ export const Tasks = () => {
           {data.map((item) => (
             <div key={item.key} className="hover:bg-gray-100">
               <a
-                href=""
+                alt="Complete"
                 className="w-full aspect-video"
-                // onClick={() => completeTask(item._id)}
+                onClick={() => completeTask(item._id)}
               >
                 <p>{item.title}</p>
               </a>
