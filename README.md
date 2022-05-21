@@ -42,3 +42,8 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 - [Miro](https://miro.com) | Wireframing & Planning
 - [Tailwind](https://tailwindcss.com/) | CSS framework
 - [ChakraUI](https://chakra-ui.com/) or [Ant Design](https://ant.design/) | External UI Library
+
+## Resources
+- [Loader Gif](https://loading.io/)
+- [Favicon]()
+- Icons - []()

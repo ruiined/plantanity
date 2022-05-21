@@ -4,7 +4,7 @@ const addTask = async (req, res) => {
   if (!req.query.task) {
     return res.status(400).send("task parameter required.");
   }
-  let task = encodeURI(req.query.task);
+  let task = req.query.task;
   console.log(task);
   const client = await clientPromise;
   const db = client.db("plantanity");

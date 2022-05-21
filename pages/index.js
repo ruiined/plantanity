@@ -104,6 +104,8 @@ const Home = () => {
               className=""
               type="text"
               name="task"
+              autoComplete="off"
+              autoFocus="true"
               onChange={changeHandler}
               placeholder="Enter your task here!"
             />
