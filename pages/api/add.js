@@ -1,6 +1,6 @@
 import clientPromise from "../../lib/mongodb";
 
-export const addTask = async (req, res) => {
+const addTask = async (req, res) => {
   if (!req.query.task) {
     return res.status(400).send("task parameter required.");
   }
@@ -12,3 +12,5 @@ export const addTask = async (req, res) => {
     .insert({ title: task, completed: false });
   res.status(200).json({ tasks });
 };
+
+export default addTask;
