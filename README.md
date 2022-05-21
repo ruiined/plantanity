@@ -4,10 +4,13 @@
 
 Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in progress_)
 
-1. 🌱 Plant the seed { **_goals_** }
-2. 💧 Water it { **_complete tasks_** }
-3. 🌻 Grow it { **_unlock more seeds_** }
-4. 🌹 Plant more to have your own unique virtual garden representing your { **_achievements_** } ✨🌿
+🌱 Plant the seed { **_goals_** }
+
+💧 Water it { **_complete tasks_** }
+
+🌻 Grow it { **_unlock more seeds_** }
+
+🌹 Plant more to have your own unique virtual garden representing your { **_achievements_** }
 
 ## Technologies
 
@@ -44,6 +47,7 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 - [ChakraUI](https://chakra-ui.com/) or [Ant Design](https://ant.design/) | External UI Library
 
 ## Resources
+
 - [Loader Gif](https://loading.io/)
 - [Favicon]()
-- Icons - []()
+- Icons []()
