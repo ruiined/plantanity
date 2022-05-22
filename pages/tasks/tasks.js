@@ -1,8 +1,12 @@
 import { Uncompleted } from "./uncompleted";
 import { Completed } from "./completed";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { AddTask } from "./add";
+import { Drag } from "./drag";
+import React, { useEffect, useState, useCallback } from "react";
+import update from "immutability-helper";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Image from "next/image";
 import axios from "axios";
 
 export const Tasks = () => {
@@ -25,10 +29,6 @@ export const Tasks = () => {
     axios.get("/api/tasks/remove?task=" + rtask).then(() => loadTasks());
   };
 
-  // const editChangeHandler = (taskId, event) => {
-  //   editTask(event.currentTarget.textContent, taskId);
-  // };
-
   const editTask = (etask, taskId) => {
     setLoading(true);
     axios
@@ -48,6 +48,17 @@ export const Tasks = () => {
     });
   };
 
+  const moveTask = useCallback((dragIndex, hoverIndex) => {
+    setTasks((prevTasks) =>
+      update(prevTasks, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, prevTasks[dragIndex]],
+        ],
+      })
+    );
+  }, []);
+
   useEffect(() => {
     setLoading(true);
     loadTasks();
@@ -63,18 +74,29 @@ export const Tasks = () => {
           <AddTask addTask={addTask} changeHandler={changeHandler} />
 
           <div className="columns-4">
-            {tasks
-              .filter((task) => task.completed)
-              .map((task) => (
-                <Uncompleted
-                  key={task._id}
-                  task={task}
-                  editTask={editTask}
-                  removeTask={removeTask}
-                  completeTask={completeTask}
-                />
-              ))}
+            <DndProvider backend={HTML5Backend}>
               {tasks
+                .filter((task) => task.completed)
+                .map((task, i) => (
+                  <div key={task._id}>
+                    <Drag
+                      key={task._id}
+                      index={i}
+                      id={task._id}
+                      moveCard={moveTask}
+                    />
+                    <Uncompleted
+                      key={task._id}
+                      task={task}
+                      editTask={editTask}
+                      removeTask={removeTask}
+                      completeTask={completeTask}
+                      index={i}
+                    />
+                  </div>
+                ))}
+            </DndProvider>
+            {tasks
               .filter((task) => !task.completed)
               .map((task) => (
                 <Completed

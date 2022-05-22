@@ -33,6 +33,8 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 - [React Router](https://reactrouter.com/) | Client and server-side routing library
 - [React Query](https://react-query.tanstack.com/) | Data management library for React
 - [React Hook Form](https://github.com/react-hook-form/react-hook-form) | Form state management and validation
+- [React Contenteditable](https://github.com/lovasoa/react-contenteditable) | Editable contents
+- [Immutability Helper](https://github.com/kolodny/immutability-helper) | Mutating a copy of data without changing the original source
 
 ### Testing
 

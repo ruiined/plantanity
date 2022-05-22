@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
+
 export function Uncompleted({ task, editTask, removeTask, completeTask }) {
   return (
-    <div className="hover:bg-gray-100 h-14 p-3 draggable">
+    <div className="hover:bg-gray-100 h-14 p-3">
       <div
         contentEditable
         suppressContentEditableWarning={true}

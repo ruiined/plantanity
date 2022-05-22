@@ -1,14 +1,9 @@
 import React from "react";
-export function Completed({
-  task,
-  editChangeHandler,
-  removeTask,
-  completeTask,
-}) {
+export function Completed({ task, editTask, removeTask, completeTask }) {
   return (
     <div
       key={task._id}
-      className="bg-green-100 hover:bg-gray-100 h-14 p-3 draggable"
+      className="bg-green-100 hover:bg-gray-100 h-14 p-3"
     >
       <div
         contentEditable
