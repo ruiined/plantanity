@@ -1,7 +1,7 @@
 import { ObjectId } from "bson";
-import clientPromise from "../../../lib/mongodb";
+import clientPromise from "@lib/mongodb";
 
-export const removeTask = async (req, res) => {
+const removeTask = async (req, res) => {
   if (!req.query.task) {
     return res.status(400).send("task parameter required.");
   }
@@ -11,3 +11,5 @@ export const removeTask = async (req, res) => {
   const tasks = await db.collection("tasks").deleteOne({ _id: ObjectId(task) });
   res.status(200).json({ tasks });
 };
+
+export default removeTask;

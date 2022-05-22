@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { AddTask } from "./add";
 import axios from "axios";
 
 export const Tasks = () => {
@@ -14,28 +15,28 @@ export const Tasks = () => {
   let addTask = (event) => {
     setLoading(true);
     event.preventDefault();
-    axios.get("/api/add?task=" + task).then(() => loadTasks());
+    axios.get("/api/tasks/add?task=" + task).then(() => loadTasks());
   };
 
   let removeTask = (rtask) => {
     setLoading(true);
-    axios.get("/api/remove?task=" + rtask).then(() => loadTasks());
+    axios.get("/api/tasks/remove?task=" + rtask).then(() => loadTasks());
   };
 
   let editTask = (etask, taskId) => {
     setLoading(true);
     axios
-      .get("/api/edit?task=" + etask + "&id=" + taskId)
+      .get("/api/tasks/edit?task=" + etask + "&id=" + taskId)
       .then(() => loadTasks());
   };
 
   let completeTask = (ctask) => {
     setLoading(true);
-    axios.get("../api/complete?task=" + ctask).then(() => loadTasks());
+    axios.get("/api/tasks/complete?task=" + ctask).then(() => loadTasks());
   };
 
   let loadTasks = () => {
-    axios.get("/api/list").then((res) => {
+    axios.get("/api/tasks/list").then((res) => {
       setData(res.data.tasks);
       setLoading(false);
     });
@@ -53,28 +54,27 @@ export const Tasks = () => {
         {loading ? (
           <Image alt="Loading" width={61} height={61} src="/loader.gif" />
         ) : (
-          <form onSubmit={addTask}>
-            <input
-              className="h-16"
-              type="text"
-              name="task"
-              autoComplete="off"
-              autoFocus={true}
-              onChange={changeHandler}
-              placeholder="Enter your task here"
-            />
-          </form>
+          <AddTask addTask={addTask} changeHandler={changeHandler} />
         )}
         <div className="columns-4">
           {data.map((item) => (
-            <div key={item._id} className="hover:bg-gray-100 h-14 p-3">
-              <div
-                contentEditable
-                suppressContentEditableWarning={true}
-                onBlur={(e) => editTask(e.currentTarget.textContent, item._id)}
-              >
-                {item.title}
-              </div>
+            <div
+              key={item._id}
+              className="hover:bg-gray-100 h-14 p-3 draggable"
+            >
+              {item.completed === false ? (
+                <div
+                  contentEditable
+                  suppressContentEditableWarning={true}
+                  onBlur={(e) =>
+                    editTask(e.currentTarget.textContent, item._id)
+                  }
+                >
+                  {item.title}
+                </div>
+              ) : (
+                "no"
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-gray-300 hover:text-red-500 hover:cursor-pointer float-right"
@@ -87,12 +87,13 @@ export const Tasks = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-300 hover:text-blue-500 hover:cursor-pointer float-right"
+                className="h-6 w-6 text-gray-300 hover:text-green-500 hover:cursor-pointer float-right"
                 fill="none"
                 viewBox="0 0 30 30"
                 stroke="currentColor"
@@ -102,7 +103,7 @@ export const Tasks = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                  d="M5 13l4 4L19 7"
                 />
               </svg>
             </div>
