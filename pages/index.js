@@ -5,7 +5,7 @@ import Head from "next/head";
 
 const Home = () => {
   return (
-    <div>
+    <div data-theme="cupcake">
       <Head>
         <title>Plantanity</title>
         <meta name="description" content="Grow your dreams" />
