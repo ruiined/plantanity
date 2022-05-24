@@ -1,5 +1,4 @@
-import { Uncompleted } from "./uncompleted";
-import { Completed } from "./completed";
+import { Task } from "./task";
 import { AddTask } from "./add";
 import { Drag } from "./drag";
 import React, { useEffect, useState, useCallback } from "react";
@@ -84,7 +83,7 @@ export const Tasks = () => {
                       id={task._id}
                       moveCard={moveTask}
                     />
-                    <Uncompleted
+                    <Task
                       key={task._id}
                       task={task}
                       editTask={editTask}

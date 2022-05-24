@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Uncompleted({ task, editTask, removeTask, completeTask }) {
+export function Task({ task, editTask, removeTask, completeTask }) {
   return (
     <div className="hover:bg-gray-100 h-14 p-3">
       <div
