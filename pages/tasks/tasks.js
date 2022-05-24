@@ -73,7 +73,6 @@ export const Tasks = () => {
       ) : ( */}
       <div className="w-full h-full flex-grow p-3 overflow-auto">
         <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
-
         <div className="columns-4">
           <DndProvider backend={HTML5Backend}>
             {tasks.map((task, i) => (

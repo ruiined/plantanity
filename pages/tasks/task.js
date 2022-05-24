@@ -6,7 +6,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
       <input
         type="checkbox"
         checked={task.completed}
-        className="cursor-pointer float-left"
+        className="checkbox checkbox-secondary cursor-pointer float-left mr-2"
         onClick={() => completeTask(task._id)}
       />
       <div
@@ -41,7 +41,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
             <a className="hover:bg-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-gray-400 hover:text-red-500"
+                className="h-6 w-6 text-gray-400 hover:text-red-500 transition"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
