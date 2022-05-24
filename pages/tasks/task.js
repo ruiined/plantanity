@@ -3,6 +3,12 @@ import React from "react";
 export function Task({ task, editTask, removeTask, completeTask }) {
   return (
     <div className="hover:bg-gray-100 h-14 p-3">
+      <input
+        type="checkbox"
+        checked={task.completed}
+        className="cursor-pointer float-left"
+        onClick={() => completeTask(task._id)}
+      />
       <div
         contentEditable
         suppressContentEditableWarning={true}
