@@ -4,7 +4,7 @@ import { AddTask } from "./add";
 import { Drag } from "./drag";
 import React, { useEffect, useState, useCallback } from "react";
 import update from "immutability-helper";
-import { DndProvider } from "react-dnd";
+import { DndProvider, DragSource, DragPreviewImage } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Image from "next/image";
 import axios from "axios";
@@ -76,7 +76,6 @@ export const Tasks = () => {
           <div className="columns-4">
             <DndProvider backend={HTML5Backend}>
               {tasks
-                .filter((task) => task.completed)
                 .map((task, i) => (
                   <div key={task._id}>
                     <Drag
@@ -96,17 +95,6 @@ export const Tasks = () => {
                   </div>
                 ))}
             </DndProvider>
-            {tasks
-              .filter((task) => !task.completed)
-              .map((task) => (
-                <Completed
-                  key={task._id}
-                  task={task}
-                  editTask={editTask}
-                  removeTask={removeTask}
-                  completeTask={completeTask}
-                />
-              ))}
           </div>
         </div>
       )}

@@ -55,7 +55,7 @@ export const Drag = ({ id, index, moveCard }) => {
   drag(drop(ref));
   return (
     <div ref={ref} data-handler-id={handlerId} className="cursor-move text-gray-300 float-left opacity h-8">
-      »»»
+      &#9634;
     </div>
   );
 };

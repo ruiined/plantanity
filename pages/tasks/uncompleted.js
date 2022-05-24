@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 export function Uncompleted({ task, editTask, removeTask, completeTask }) {
   return (
