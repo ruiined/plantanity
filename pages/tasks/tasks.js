@@ -78,12 +78,12 @@ export const Tasks = () => {
           <DndProvider backend={HTML5Backend}>
             {tasks.map((task, i) => (
               <div key={task._id}>
-                <Drag
+                {/* <Drag
                   key={task._id}
                   index={i}
                   id={task._id}
                   moveCard={moveTask}
-                />
+                /> */}
                 <Task
                   key={task._id}
                   task={task}
