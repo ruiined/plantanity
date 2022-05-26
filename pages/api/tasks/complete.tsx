@@ -1,6 +1,6 @@
 import { ObjectId } from "bson";
-import connectMongo from "../../../lib/mongodb";
-import Task from "../../../models/task";
+import connectMongo from "@lib/mongodb";
+import Task from "@models/task";
 
 const completeTask = async (req, res) => {
   let task = encodeURI(req.query.task);

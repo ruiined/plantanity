@@ -1,5 +1,5 @@
-import connectMongo from "../../../lib/mongodb";
-import Task from "../../../models/task";
+import connectMongo from "@lib/mongodb";
+import Task from "@models/task";
 
 const getTasks = async (req, res) => {
   await connectMongo();

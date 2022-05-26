@@ -1,5 +1,5 @@
-import connectMongo from "../../../lib/mongodb";
-import Task from "../../../models/task";
+import connectMongo from "@lib/mongodb";
+import Task from "@models/task";
 
 const addTask = async (req, res) => {
   if (!req.query.task) res.status(400).send("task parameter required.");

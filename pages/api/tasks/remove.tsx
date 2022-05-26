@@ -1,6 +1,6 @@
 import { ObjectId } from "bson";
-import connectMongo from "../../../lib/mongodb";
-import Task from "../../../models/task";
+import connectMongo from "@lib/mongodb";
+import Task from "@models/task";
 
 const removeTask = async (req, res) => {
   if (!req.query.task) res.status(400).send("task parameter required.");
