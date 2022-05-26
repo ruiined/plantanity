@@ -1,10 +1,10 @@
-import clientPromise from "@lib/mongodb";
+import connectMongo from "../../../lib/mongodb";
+import Task from "../../../models/task";
 
 const getTasks = async (req, res) => {
-  const client = await clientPromise;
-  const db = client.db("plantanity");
-  const tasks = await db.collection("tasks").find({}).toArray();
-  res.status(200).json({ tasks });
+  await connectMongo();
+  const tasks = await Task.find({});
+  await res.status(200).json({ tasks });
 };
 
-export default getTasks
+export default getTasks;
