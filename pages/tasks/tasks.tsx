@@ -65,7 +65,7 @@ export const Tasks = () => {
     loadTasks();
   }, []);
 
-  if (!tasks) return "Loading...";
+  if (!tasks) return (<i>Loading...</i>);
   return (
     <div>
       {/* {loading ? (
@@ -89,7 +89,6 @@ export const Tasks = () => {
                   editTask={editTask}
                   removeTask={removeTask}
                   completeTask={completeTask}
-                  index={i}
                 />
               </div>
             ))}

@@ -12,7 +12,6 @@ export const AddTask = ({ task, addTask, changeHandler }) => {
         autoFocus={true}
         onChange={changeHandler}
         placeholder="Enter your task here"
-        label="Task Name"
       />
     </form>
   );

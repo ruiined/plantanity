@@ -17,7 +17,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
         {task.title}
       </div>
       <div className="dropdown float-right">
-        <label tabIndex="0">
+        <label tabIndex={0}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-gray-300 hover:text-green-500 hover:cursor-pointer"
@@ -34,7 +34,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
           </svg>
         </label>
         <ul
-          tabIndex="0"
+          tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-22"
         >
           <li onClick={() => removeTask(task._id)}>
