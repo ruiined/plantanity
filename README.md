@@ -23,16 +23,18 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 
 ### &&
 
+- [TypeScript](https://www.typescriptlang.org/) | Typed superset of JavaScript
+- [Mongoose](https://mongoosejs.com/) | MongoDB object modeling tool
 - [Axios](https://github.com/axios/axios) | Http client
 - [Prettier](https://github.com/prettier/prettier) | Code formatter
 - [ESLint](https://eslint.org/) | Linting utility
 
-### Component Libraries
+### Libraries
 
-- [Redux](https://redux.js.org/) | JavaScript library for managing and centralizing application state
-- [React Router](https://reactrouter.com/) | Client and server-side routing library
-- [React Query](https://react-query.tanstack.com/) | Data management library for React
-- [React Hook Form](https://github.com/react-hook-form/react-hook-form) | Form state management and validation
+- _(TODO)_ [Redux](https://redux.js.org/) | JavaScript library for managing and centralizing application state
+- _(TODO)_ [React Router](https://reactrouter.com/) | Client and server-side routing library
+- _(TODO)_ [React Query](https://react-query.tanstack.com/) | Data management library for React
+- _(TODO)_ [React Hook Form](https://github.com/react-hook-form/react-hook-form) | Form state management and validation
 - [React Contenteditable](https://github.com/lovasoa/react-contenteditable) | Editable contents
 - [Immutability Helper](https://github.com/kolodny/immutability-helper) | Mutating a copy of data without changing the original source
 
