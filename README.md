@@ -2,7 +2,7 @@
 
 [![Tests](https://github.com/ruiined/plantanity/actions/workflows/testing.yml/badge.svg)](https://github.com/ruiined/plantanity/actions/workflows/testing.yml)
 
-Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in progress_)
+Visit the website on [heroku](https://plantanity.herokuapp.com/) (_Work in progress_)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🌱 Plant the seed { **_goals_** }
 
@@ -31,17 +31,18 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 
 ### Libraries
 
-- _(TODO)_ [Redux](https://redux.js.org/) | JavaScript library for managing and centralizing application state
-- _(TODO)_ [React Router](https://reactrouter.com/) | Client and server-side routing library
-- _(TODO)_ [React Query](https://react-query.tanstack.com/) | Data management library for React
-- _(TODO)_ [React Hook Form](https://github.com/react-hook-form/react-hook-form) | Form state management and validation
+- _(todo)_ [Redux](https://redux.js.org/) | JavaScript library for managing and centralizing application state
+- _(todo)_ [React Router](https://reactrouter.com/) | Client and server-side routing library
+- _(todo)_ [React Query](https://react-query.tanstack.com/) | Data management library for React
+- _(todo)_ [React Hook Form](https://github.com/react-hook-form/react-hook-form) | Form state management and validation
 - [React Contenteditable](https://github.com/lovasoa/react-contenteditable) | Editable contents
 - [Immutability Helper](https://github.com/kolodny/immutability-helper) | Mutating a copy of data without changing the original source
 
 ### Testing
 
 - [Jest](https://jestjs.io/) | Back-end unit testing.
-- [Cypress](http://cypress) | End-to-end testing framework
+- [Cypress](https://www.cypress.io/) | End-to-end testing framework
+- [React Testing Library](https://testing-library.com/) | React DOM testing utilities
 - [GitHub Actions](https://github.com/features/actions) | Continuous Integration
 
 ### Styling
@@ -54,4 +55,4 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/). (_Work in prog
 
 - [Loader Gif](https://loading.io/)
 - [Favicon]()
-- Icons []()
+- [Icons]()
