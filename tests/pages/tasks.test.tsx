@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Tasks } from "../pages/tasks";
+import { Tasks } from "@pages/tasks";
 
 describe("Tasks", () => {
   test("task input", () => {

@@ -1,4 +1,4 @@
-import { Navbar } from "./navbar";
+import { Navbar } from "@components/main/navbar";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 
