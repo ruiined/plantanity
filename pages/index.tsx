@@ -1,4 +1,4 @@
-import { Tasks } from "./tasks/tasks";
+import { Tasks } from "./tasks";
 import { Navbar } from "../components/main/navbar/navbar";
 import { Footer } from "../components/main/footer/footer";
 import Head from "next/head";

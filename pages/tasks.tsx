@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Task } from "../../components/tasks/task";
-import { AddTask } from "../../components/tasks/add";
+import { Task } from "../components/tasks/task";
+import { AddTask } from "../components/tasks/add";
 import axios from "axios";
 
 export const Tasks = () => {
