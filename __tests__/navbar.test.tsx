@@ -1,13 +1,13 @@
-import { render, screen } from "@testing-library/react";
-import Home from "../pages/index";
+import { Navbar } from "../pages/home/navbar";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 
-describe("Home", () => {
+describe("Navbar", () => {
   it("renders a heading", () => {
-    render(<Home />);
+    render(<Navbar />);
 
     const heading = screen.getByRole("heading", {
-      name: /Plantanity/i,
+      name: /plantanity/i,
     });
 
     expect(heading).toBeInTheDocument();

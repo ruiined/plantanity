@@ -1,10 +1,10 @@
 import { Task } from "./task";
 import { AddTask } from "./add";
-import { Drag } from "./drag";
+// import { Drag } from "./drag";
 import React, { useEffect, useState, useCallback } from "react";
 import update from "immutability-helper";
-import { DndProvider, DragSource, DragPreviewImage } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+// import { DndProvider, DragSource, DragPreviewImage } from "react-dnd";
+// import { HTML5Backend } from "react-dnd-html5-backend";
 import axios from "axios";
 
 export const Tasks = () => {
@@ -49,16 +49,16 @@ export const Tasks = () => {
     });
   };
 
-  const moveTask = useCallback((dragIndex, hoverIndex) => {
-    setTasks((prevTasks) =>
-      update(prevTasks, {
-        $splice: [
-          [dragIndex, 1],
-          [hoverIndex, 0, prevTasks[dragIndex]],
-        ],
-      })
-    );
-  }, []);
+  // const moveTask = useCallback((dragIndex, hoverIndex) => {
+  //   setTasks((prevTasks) =>
+  //     update(prevTasks, {
+  //       $splice: [
+  //         [dragIndex, 1],
+  //         [hoverIndex, 0, prevTasks[dragIndex]],
+  //       ],
+  //     })
+  //   );
+  // }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -74,7 +74,7 @@ export const Tasks = () => {
       <div className="w-full h-full flex-grow p-3 overflow-auto">
         <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
         <div className="columns-4">
-          <DndProvider backend={HTML5Backend}>
+          {/* <DndProvider backend={HTML5Backend}> */}
             {tasks.map((task, i) => (
               <div key={task._id}>
                 {/* <Drag
@@ -92,7 +92,7 @@ export const Tasks = () => {
                 />
               </div>
             ))}
-          </DndProvider>
+          {/* </DndProvider> */}
         </div>
       </div>
       {/* )} */}
