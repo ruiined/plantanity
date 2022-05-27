@@ -30,10 +30,6 @@ jobs:
           npm install
           npm run test
 
-      - name: Linting
-        run: |
-          npm run lint
-
       # - name: Cypress Run
       #   uses: cypress-io/github-action@v2
       #   with:
