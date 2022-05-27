@@ -1,8 +1,8 @@
-import connectMongo from "@lib/mongodb";
+import { connectDB } from "@lib/db";
 import Task from "@models/task";
 
 const getTasks = async (req, res) => {
-  await connectMongo();
+  await connectDB();
   const tasks = await Task.find({});
   await res.status(200).json({ tasks });
 };

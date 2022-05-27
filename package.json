@@ -7,22 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "daisyui": "^2.15.1",
-    "immutability-helper": "^3.1.1",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-contenteditable": "^3.3.6",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
-    "react-dom": "18.1.0",
-    "react-draggable": "^4.4.5",
-    "use-editable": "^2.3.3"
+    "react-dom": "18.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

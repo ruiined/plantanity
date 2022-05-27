@@ -1,10 +1,10 @@
 import { ObjectId } from "bson";
-import connectMongo from "@lib/mongodb";
+import { connectDB } from "@lib/db";
 import Task from "@models/task";
 
 const completeTask = async (req, res) => {
   let task = encodeURI(req.query.task);
-  await connectMongo();
+  await connectDB();
   const tasks = await Task.findOneAndUpdate(
     { _id: new ObjectId(task) },
     [{ $set: { completed: { $eq: [false, "$completed"] } } }],
