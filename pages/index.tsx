@@ -1,6 +1,6 @@
 import { Tasks } from "./tasks/tasks";
-import { Navbar } from "./home/navbar";
-import { Footer } from "./home/footer";
+import { Navbar } from "../components/main/navbar/navbar";
+import { Footer } from "../components/main/footer/footer";
 import Head from "next/head";
 
 const Home = () => {

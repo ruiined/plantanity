@@ -1,4 +1,4 @@
-import { Tasks } from "../pages/tasks/tasks";
+import { Tasks } from "./tasks";
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 
