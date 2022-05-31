@@ -56,9 +56,9 @@ export const Tasks = () => {
       ) : ( */}
       <div className="w-full h-full flex-grow p-3 overflow-auto">
         <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
-        <div className="columns-4">
+        <div data-testid="task-list" className="columns-4">
           {tasks.map((task) => (
-            <div key={task._id}>
+            <div key={task._id} data-testid="task-item">
               <Task
                 task={task}
                 editTask={editTask}

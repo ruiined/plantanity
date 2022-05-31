@@ -6,6 +6,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
       <input
         type="checkbox"
         checked={task.completed}
+        data-testid="task-checkbox"
         className="checkbox checkbox-secondary cursor-pointer float-left mr-2"
         onClick={() => completeTask(task._id)}
       />
@@ -24,6 +25,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
             fill="none"
             viewBox="0 0 30 30"
             stroke="currentColor"
+            data-testid="task-dropdown"
             strokeWidth={2}
           >
             <path
@@ -37,7 +39,7 @@ export function Task({ task, editTask, removeTask, completeTask }) {
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-22"
         >
-          <li onClick={() => removeTask(task._id)}>
+          <li onClick={() => removeTask(task._id)} data-testid="task-delete">
             <a className="hover:bg-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noImplicitAny": false,
+    "types": ["cypress"],
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
@@ -23,6 +24,6 @@
       "@pages/*": ["pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "cypress/support/commands.ts", "cypress/support/index.ts", "cypress/plugins/index.ts"],
   "exclude": ["node_modules"]
 }
