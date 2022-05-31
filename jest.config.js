@@ -6,6 +6,7 @@ const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/"],
   testEnvironment: "jest-environment-jsdom",
   setupFilesAfterEnv: ["./jest.setup.js"],
+  testPathIgnorePatterns: ["<rootDir>/cypress/"],
   moduleNameMapper: {
     "@lib/(.*)": "<rootDir>/lib/$1",
     "@models/(.*)": "<rootDir>/models/$1",
