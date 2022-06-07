@@ -6,7 +6,7 @@ export const Dropdown = ({ removeTask, task }) => {
       <label tabIndex={0}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-gray-300 hover:text-green-500 hover:cursor-pointer"
+          className="show-on-hover h-6 w-6 text-gray-300 hover:text-green-500 hover:cursor-pointer"
           fill="none"
           viewBox="0 0 30 30"
           stroke="currentColor"
