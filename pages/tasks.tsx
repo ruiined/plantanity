@@ -21,7 +21,10 @@ export const Tasks = () => {
 
   const removeTask = (rtask) => {
     setLoading(true);
-    axios.post("/api/tasks/remove?task=" + rtask).then(() => loadTasks());
+    axios.post("/api/tasks/remove?task=" + rtask).then(() => {
+      loadTasks()
+      showAlert("success", "Task deleted successfully")
+    });
   };
 
   const editTask = (etask, taskId) => {
@@ -42,6 +45,9 @@ export const Tasks = () => {
       setLoading(false);
     });
   };
+
+  const showAlert = (type, message) => {
+      }
 
   useEffect(() => {
     setLoading(true);
