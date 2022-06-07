@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
 import axios from "axios";
@@ -15,15 +16,34 @@ export const Tasks = () => {
   const addTask = (event) => {
     setLoading(true);
     event.preventDefault();
-    axios.post("/api/tasks/add?task=" + task).then(() => loadTasks());
+    axios.post("/api/tasks/add?task=" + task).then(() => {
+      loadTasks();
+      toast.success("Task added!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    });
     setTask("");
   };
 
   const removeTask = (rtask) => {
     setLoading(true);
     axios.post("/api/tasks/remove?task=" + rtask).then(() => {
-      loadTasks()
-      showAlert("success", "Task deleted successfully")
+      loadTasks();
+      toast.warn("Task deleted", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     });
   };
 
@@ -46,9 +66,6 @@ export const Tasks = () => {
     });
   };
 
-  const showAlert = (type, message) => {
-      }
-
   useEffect(() => {
     setLoading(true);
     loadTasks();
@@ -62,7 +79,10 @@ export const Tasks = () => {
       ) : ( */}
       <div className="w-full h-full flex-grow p-3 overflow-auto">
         <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
-        <div data-testid="task-list" className="grid grid-cols-4 pt-3 mt-4 mb-12 mx-6">
+        <div
+          data-testid="task-list"
+          className="grid grid-cols-4 pt-3 mt-4 mb-12 mx-6"
+        >
           {tasks.map((task) => (
             <ul key={task._id} data-testid="task-item">
               <Task
