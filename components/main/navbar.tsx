@@ -4,7 +4,7 @@ import Link from "next/link";
 export function Navbar({}) {
   return (
     <header>
-      <div className="navbar bg-base-100 shadow-lg mx-auto px-4 flex justify-between stickyl">
+      <div className="navbar bg-base-100 mt-[-6px] shadow-lg mx-auto px-4 flex pb-0 justify-between stickyl">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -57,7 +57,7 @@ export function Navbar({}) {
               </li>
             </ul>
           </div>
-          <h1 className="flex items-center py-4 px-2 font-semibold text-gray-700 text-2xl hover:text-green-500">
+          <h1 className="transition duration-300 flex items-center py-4 px-2 font-semibold text-gray-700 text-2xl hover:text-green-500">
             <Link href="/">Plantanity</Link>
           </h1>
         </div>
@@ -65,25 +65,25 @@ export function Navbar({}) {
         <div className="navbar-center hidden md:flex items-center space-x-1">
           <a
             href=""
-            className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold hover:bg-green-100"
+            className="transition duration-300 py-[18px] px-2 text-green-500 border-b-4 border-green-500 font-semibold hover:bg-green-100"
           >
             Garden
           </a>
           <a
             href=""
-            className="py-4 px-2 text-gray-400 border-b-4 border-gray-400 font-semibold hover:bg-gray-100"
+            className="transition duration-300 py-[18px] px-2 text-gray-400 border-b-4 border-gray-400 font-semibold hover:bg-gray-100"
           >
             Seeds
           </a>
           <a
             href=""
-            className="py-4 px-2 text-gray-400 border-b-4 border-gray-400 font-semibold hover:bg-gray-100"
+            className="transition duration-300 py-[18px] px-2 text-gray-400 border-b-4 border-gray-400 font-semibold hover:bg-gray-100"
           >
             Water
           </a>
           <a
             href=""
-            className="py-4 px-2 text-gray-400 border-b-4 border-gray-400 font-semibold hover:bg-gray-100"
+            className="transition duration-300 py-[18px] px-2 text-gray-400 border-b-4 border-gray-400 font-semibold hover:bg-gray-100"
           >
             Achievements
           </a>

@@ -5,8 +5,8 @@ import axios from "axios";
 
 export const Tasks = () => {
   const [tasks, setTasks] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
   const [task, setTask] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const changeHandler = (event) => {
     setTask(event.target.value);
@@ -56,16 +56,16 @@ export const Tasks = () => {
       ) : ( */}
       <div className="w-full h-full flex-grow p-3 overflow-auto">
         <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
-        <div data-testid="task-list" className="columns-4">
+        <div data-testid="task-list" className="grid grid-cols-4 pt-3 mt-4 mb-12 mx-6">
           {tasks.map((task) => (
-            <div key={task._id} data-testid="task-item">
+            <ul key={task._id} data-testid="task-item">
               <Task
                 task={task}
                 editTask={editTask}
                 removeTask={removeTask}
                 completeTask={completeTask}
               />
-            </div>
+            </ul>
           ))}
         </div>
       </div>
