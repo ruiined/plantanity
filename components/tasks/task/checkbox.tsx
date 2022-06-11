@@ -1,6 +1,14 @@
 import React from "react";
 
-export const Checkbox = ({ completeTask, task }) => {
+interface CheckboxInterface {
+  completeTask: React.ChangeEvent<HTMLInputElement>;
+  task: {
+    completed: boolean;
+    _id: string;
+  };
+}
+
+export const Checkbox = ({ completeTask, task }: CheckboxInterface) => {
   return (
     <input
       type="checkbox"

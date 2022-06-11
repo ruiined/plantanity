@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useEffect, useState, useReducer } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
 import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
-import axios from "axios";
 
 export const Tasks = () => {
   const [tasks, setTasks] = useState<any[]>([]);
   const [task, setTask] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const changeHandler = (event) => {
-    setTask(event.target.value);
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setTask(e.target.value);
   };
 
-  const addTask = (event) => {
+  const addTask = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoading(true);
-    event.preventDefault();
+    e.preventDefault();
     axios.post("/api/tasks/add?task=" + task).then(() => {
       loadTasks();
       toast.success("Task added!", {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -31,14 +32,14 @@ export const Tasks = () => {
     setTask("");
   };
 
-  const removeTask = (rtask) => {
+  const removeTask = (rtask: string) => {
     setLoading(true);
     axios.post("/api/tasks/remove?task=" + rtask).then(() => {
       loadTasks();
       toast.warn("Task deleted", {
         position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
+        autoClose: 1000,
+        hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -47,14 +48,14 @@ export const Tasks = () => {
     });
   };
 
-  const editTask = (etask, taskId) => {
+  const editTask = (etask: string, taskId: string) => {
     setLoading(true);
     axios
       .post("/api/tasks/edit?task=" + etask + "&id=" + taskId)
       .then(() => loadTasks());
   };
 
-  const completeTask = (ctask) => {
+  const completeTask = (ctask: string) => {
     setLoading(true);
     axios.post("/api/tasks/complete?task=" + ctask).then(() => loadTasks());
   };
