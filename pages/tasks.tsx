@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useReducer } from "react";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
 

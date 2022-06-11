@@ -32,6 +32,6 @@
     "cypress/support/index.ts",
     "cypress/plugins/index.ts",
     "node_modules/jest-dom"
-  ],
+, "jest.config.js"  ],
   "exclude": ["node_modules"]
 }
