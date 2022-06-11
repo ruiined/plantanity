@@ -24,6 +24,14 @@
       "@pages/*": ["pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "cypress/support/commands.ts", "cypress/support/index.ts", "cypress/plugins/index.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "cypress/support/commands.ts",
+    "cypress/support/index.ts",
+    "cypress/plugins/index.ts",
+    "node_modules/jest-dom"
+  ],
   "exclude": ["node_modules"]
 }
