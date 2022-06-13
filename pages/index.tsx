@@ -19,7 +19,7 @@ const Home = () => {
       <Navbar />
       <QueryClientProvider client={queryClient}>
         <Tasks />
-        <ReactQueryDevtools />
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
       <Footer />
     </div>
