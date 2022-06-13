@@ -1,10 +1,13 @@
 import { Tasks } from "./tasks";
 import { Navbar } from "../components/main/navbar";
 import { Footer } from "../components/main/footer";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 import Head from "next/head";
 
 const Home = () => {
+  const queryClient = new QueryClient();
   return (
     <div data-theme="lemonade" className="flex flex-col min-h-screen">
       <Head>
@@ -14,11 +17,10 @@ const Home = () => {
       </Head>
       <ToastContainer />
       <Navbar />
-
-      <main className="w-full h-full flex-grow pt-12 overflow-auto">
+      <QueryClientProvider client={queryClient}>
         <Tasks />
-      </main>
-
+        <ReactQueryDevtools />
+      </QueryClientProvider>
       <Footer />
     </div>
   );

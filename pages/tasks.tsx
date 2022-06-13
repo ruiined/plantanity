@@ -60,6 +60,11 @@ export const Tasks = () => {
     axios.post("/api/tasks/complete?task=" + ctask).then(() => loadTasks());
   };
 
+  const fetchTasks = async () => {
+    const res = await fetch("/api/tasks/list");
+    return res.json();
+  };
+
   const loadTasks = () => {
     axios.get("/api/tasks/list").then((res) => {
       setTasks(res.data.tasks);
@@ -74,7 +79,7 @@ export const Tasks = () => {
 
   if (!tasks) return <i>Loading...</i>;
   return (
-    <div>
+    <div className="w-full h-full flex-grow pt-12 overflow-auto">
       {/* {loading ? (
         <Image alt="Loading" width={61} height={61} src="/loader.gif" />
       ) : ( */}
