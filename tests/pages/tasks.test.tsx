@@ -1,10 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { RecoilRoot } from "recoil";
 import "@testing-library/jest-dom";
 import { Tasks } from "@pages/tasks";
 
 describe("Tasks", () => {
   test("task input", () => {
-    render(<Tasks />);
+    render(
+      <RecoilRoot>
+        <Tasks />
+      </RecoilRoot>
+    );
 
     const input = screen.queryByTestId("task-input");
 
