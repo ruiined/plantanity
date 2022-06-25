@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
+import { taskListState, taskItemState } from "@lib/recoil/atoms";
 
 export const Tasks = () => {
-  const [tasks, setTasks] = useState<any[]>([]);
-  const [task, setTask] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+  const [task, setTask] = useRecoilState(taskItemState);
+  const tasks = useRecoilValue(taskListState);
+  const setTasks = useSetRecoilState(taskListState);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -15,7 +17,6 @@ export const Tasks = () => {
   };
 
   const addTask = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoading(true);
     e.preventDefault();
     axios.post("/api/tasks/add?task=" + task).then(() => {
       loadTasks();
@@ -33,7 +34,6 @@ export const Tasks = () => {
   };
 
   const removeTask = (rtask: string) => {
-    setLoading(true);
     axios.post("/api/tasks/remove?task=" + rtask).then(() => {
       loadTasks();
       toast.warn("Task deleted", {
@@ -49,26 +49,22 @@ export const Tasks = () => {
   };
 
   const editTask = (etask: string, taskId: string) => {
-    setLoading(true);
     axios
       .post("/api/tasks/edit?task=" + etask + "&id=" + taskId)
       .then(() => loadTasks());
   };
 
   const completeTask = (ctask: string) => {
-    setLoading(true);
     axios.post("/api/tasks/complete?task=" + ctask).then(() => loadTasks());
   };
 
   const loadTasks = () => {
     axios.get("/api/tasks/list").then((res) => {
       setTasks(res.data.tasks);
-      setLoading(false);
     });
   };
 
   useEffect(() => {
-    setLoading(true);
     loadTasks();
   }, []);
 

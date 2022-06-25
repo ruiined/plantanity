@@ -1,7 +1,8 @@
 import { Tasks } from "./tasks";
 import { Navbar } from "../components/main/navbar";
 import { Footer } from "../components/main/footer";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import { RecoilRoot } from "recoil";
 import Head from "next/head";
 
 const Home = () => {
@@ -14,11 +15,9 @@ const Home = () => {
       </Head>
       <ToastContainer />
       <Navbar />
-
-      <main className="w-full h-full flex-grow pt-12 overflow-auto">
+      <RecoilRoot>
         <Tasks />
-      </main>
-
+      </RecoilRoot>
       <Footer />
     </div>
   );
