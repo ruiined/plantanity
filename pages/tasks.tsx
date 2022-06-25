@@ -8,8 +8,7 @@ import { taskListState, taskItemState } from "@lib/recoil/atoms";
 
 export const Tasks = () => {
   const [task, setTask] = useRecoilState(taskItemState);
-  const tasks = useRecoilValue(taskListState);
-  const setTasks = useSetRecoilState(taskListState);
+  const [tasks, setTasks] = useRecoilState(taskListState);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();

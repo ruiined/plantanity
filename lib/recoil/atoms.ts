@@ -1,11 +1,11 @@
 import { atom } from "recoil";
 
-export const taskListState = atom({
-  key: "TaskList",
-  default: [],
+export const taskItemState = atom({
+  key: "taskItem",
+  default: "",
 });
 
-export const taskItemState = atom({
-  key: "TaskItem",
-  default: "",
+export const taskListState = atom({
+  key: "taskList",
+  default: [],
 });

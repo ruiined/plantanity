@@ -2,7 +2,6 @@ import { Tasks } from "./tasks";
 import { Navbar } from "../components/main/navbar";
 import { Footer } from "../components/main/footer";
 import { ToastContainer } from "react-toastify";
-import { RecoilRoot } from "recoil";
 import Head from "next/head";
 
 const Home = () => {
@@ -15,9 +14,7 @@ const Home = () => {
       </Head>
       <ToastContainer />
       <Navbar />
-      <RecoilRoot>
-        <Tasks />
-      </RecoilRoot>
+      <Tasks />
       <Footer />
     </div>
   );
