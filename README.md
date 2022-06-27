@@ -31,10 +31,10 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/) (_Work in progr
 
 ### Libraries
 
-- _(todo)_ [React Query](https://react-query.tanstack.com/) | Data management library for React
+- [Recoil](https://react-query.tanstack.com/) | State management library for React
 - _(todo)_ [React Hook Form](https://github.com/react-hook-form/react-hook-form) | Form state management and validation
 - [React Contenteditable](https://github.com/lovasoa/react-contenteditable) | Editable contents
-- _(todo)_ [Immutability Helper](https://github.com/kolodny/immutability-helper) | Mutating a copy of data without changing the original source
+<!-- - _(todo)_ [Immutability Helper](https://github.com/kolodny/immutability-helper) | Mutating a copy of data without changing the original source -->
 - [React Toastify](https://github.com/fkhadra/react-toastify) | Alerts & Notifications
 
 ### Testing
@@ -53,5 +53,6 @@ Visit the website on [heroku](https://plantanity.herokuapp.com/) (_Work in progr
 ## Resources
 
 <!-- - [Loader Gif](https://loading.io/) -->
+
 - [Favicon]()
 - [Icons]()
