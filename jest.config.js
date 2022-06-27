@@ -13,5 +13,6 @@ const customJestConfig = {
     "@components/(.*)": "<rootDir>/components/$1",
     "@pages/(.*)": "<rootDir>/pages/$1",
   },
+  modulePaths: ["<rootDir>"],
 };
 module.exports = createJestConfig(customJestConfig);
