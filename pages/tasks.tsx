@@ -6,14 +6,21 @@ import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
 import { taskListState, taskItemState } from "@lib/recoil/atoms";
 
+export declare interface Task {
+  _id: string;
+  title: string;
+  completed: boolean;
+}
+
 export const Tasks = () => {
   const [task, setTask] = useRecoilState(taskItemState);
   const [tasks, setTasks] = useRecoilState(taskListState);
 
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setTask(e.target.value);
-  };
+  // const getTasks = async ({ queryKey }: any) => {
+  //   const { data } = await axios.get(`/api/${queryKey[0]}`);
+  //   let category = queryKey[0].split("/")[0];
+  //   return data[category];
+  // };
 
   const addTask = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -46,10 +53,11 @@ export const Tasks = () => {
       });
     });
   };
+
   const editTask = (etask: string, taskId: string) => {
     axios
       .post("/api/tasks/edit?task=" + etask + "&id=" + taskId)
-      .then(() => loadTasks());
+      .then(() => getTasks());
   };
 
   const completeTask = (ctask: string) => {
@@ -66,24 +74,29 @@ export const Tasks = () => {
     loadTasks();
   }, []);
 
-  if (!tasks) return <i>Loading...</i>;
+//   if (status === "loading") {
+//     return <img alt="Loading" width={61} height={61} src="/loader.gif" />;
+//   }
+
+//   if (status === "error") {
+//     return <span>Error: {error.message}</span>;
+//   }
+
+  if (!data) return <span>No tasks yet</span>;
+
   return (
-    <div>
-      {/* {loading ? (
-        <Image alt="Loading" width={61} height={61} src="/loader.gif" />
-      ) : ( */}
+    <div className="w-full h-full flex-grow pt-12 overflow-auto">
       <div className="w-full h-full flex-grow p-3 overflow-auto">
-        <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
+        <AddTask />
         <div
           data-testid="task-list"
           className="grid grid-cols-4 pt-3 mt-4 mb-12 mx-6"
         >
-          {tasks.map((task) => (
+          {data?.map((task) => (
             <ul key={task._id} data-testid="task-item">
               <Task
                 task={task}
                 editTask={editTask}
-                removeTask={removeTask}
                 completeTask={completeTask}
               />
             </ul>
