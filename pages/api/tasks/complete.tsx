@@ -1,13 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ObjectId } from "bson";
 import { connectDB } from "@lib/db";
 import Task from "@models/task";
 
 const completeTask = async (req: NextApiRequest, res: NextApiResponse) => {
-  let task = req.query.task;
+  let taskId = req.query.task;
   await connectDB();
   const tasks = await Task.findOneAndUpdate(
-    { _id: new ObjectId(task) },
+    { _id: taskId },
     [{ $set: { completed: { $eq: [false, "$completed"] } } }],
     { new: true }
   );

@@ -3,9 +3,10 @@ import { connectDB } from "@lib/db";
 import Task from "@models/task";
 
 const addTask = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (!req.query.task) res.status(400).send("Task parameter required");
+  let taskTitle = req.query.task;
+  if (!taskTitle) res.status(400).send("Task parameter required");
   await connectDB();
-  const task = await Task.create({ title: req.query.task });
+  const task = await Task.create({ title: taskTitle });
   res.status(200).json({ task });
 };
 
