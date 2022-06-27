@@ -16,12 +16,6 @@ export const Tasks = () => {
   const [task, setTask] = useRecoilState(taskItemState);
   const [tasks, setTasks] = useRecoilState(taskListState);
 
-  // const getTasks = async ({ queryKey }: any) => {
-  //   const { data } = await axios.get(`/api/${queryKey[0]}`);
-  //   let category = queryKey[0].split("/")[0];
-  //   return data[category];
-  // };
-
   const addTask = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     axios.post("/api/tasks/add?task=" + task).then(() => {
@@ -54,10 +48,15 @@ export const Tasks = () => {
     });
   };
 
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setTask(e.target.value);
+  };
+
   const editTask = (etask: string, taskId: string) => {
     axios
       .post("/api/tasks/edit?task=" + etask + "&id=" + taskId)
-      .then(() => getTasks());
+      .then(() => loadTasks());
   };
 
   const completeTask = (ctask: string) => {
@@ -74,30 +73,31 @@ export const Tasks = () => {
     loadTasks();
   }, []);
 
-//   if (status === "loading") {
-//     return <img alt="Loading" width={61} height={61} src="/loader.gif" />;
-//   }
+  //   if (status === "loading") {
+  //     return <img alt="Loading" width={61} height={61} src="/loader.gif" />;
+  //   }
 
-//   if (status === "error") {
-//     return <span>Error: {error.message}</span>;
-//   }
+  //   if (status === "error") {
+  //     return <span>Error: {error.message}</span>;
+  //   }
 
-  if (!data) return <span>No tasks yet</span>;
+  if (!tasks) return <span>No tasks yet</span>;
 
   return (
     <div className="w-full h-full flex-grow pt-12 overflow-auto">
       <div className="w-full h-full flex-grow p-3 overflow-auto">
-        <AddTask />
+        <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
         <div
           data-testid="task-list"
           className="grid grid-cols-4 pt-3 mt-4 mb-12 mx-6"
         >
-          {data?.map((task) => (
+          {tasks?.map((task) => (
             <ul key={task._id} data-testid="task-item">
               <Task
                 task={task}
                 editTask={editTask}
                 completeTask={completeTask}
+                removeTask={removeTask}
               />
             </ul>
           ))}
