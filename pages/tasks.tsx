@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import axios from "axios";
 // import { toast } from "react-toastify";
-import { Toast } from "@components/notifications/toast";
+import { statusToast } from "@components/notifications/toast";
 import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
 import { taskListState, taskItemState } from "@lib/recoil/atoms";
@@ -21,7 +21,7 @@ export const Tasks = () => {
     e.preventDefault();
     axios.post("/api/tasks/add?task=" + task).then(() => {
       loadTasks();
-      Toast("success", "Task added!");
+      statusToast("success", "Task added!");
     });
     setTask("");
   };
@@ -29,7 +29,7 @@ export const Tasks = () => {
   const removeTask = (rtask: string) => {
     axios.post("/api/tasks/remove?task=" + rtask).then(() => {
       loadTasks();
-      Toast("warn", "Task removed!")
+      statusToast("warn", "Task removed!");
     });
   };
 

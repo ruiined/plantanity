@@ -5,7 +5,8 @@ interface Toast {
   message: string;
 }
 
-export const Toast = ({ type, message }: Toast) => {
+// TODO: combine parameter types into one
+export const statusToast = (type: Toast, message: Toast) => {
   // TODO: TypeScript - No index signature with a parameter of type 'string' was found on type 'typeof toast'
   toast[type](message, {
     position: "top-right",
