@@ -1,6 +1,12 @@
-import React from 'react';
+import React from "react";
 
-export const AddTask = ({ task, addTask, changeHandler }) => {
+interface AddInterface {
+  addTask: React.FormEventHandler<HTMLFormElement>;
+  changeHandler: React.ChangeEventHandler<HTMLInputElement>;
+  task: string;
+}
+
+export const AddTask = ({ task, addTask, changeHandler }: AddInterface) => {
   return (
     <form onSubmit={addTask} className="flex place-content-center">
       <input

@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 export function Navbar({}) {
   return (
+    // TODO: Extract SVG
     <header>
       <div className="navbar bg-base-100 mt-[-6px] shadow-lg mx-auto px-4 flex pb-0 justify-between stickyl">
         <div className="navbar-start">

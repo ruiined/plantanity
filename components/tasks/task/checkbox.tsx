@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface CheckboxInterface {
   completeTask: React.ChangeEvent<HTMLInputElement>;
@@ -15,6 +15,7 @@ export const Checkbox = ({ completeTask, task }: CheckboxInterface) => {
       checked={task.completed}
       data-testid="task-checkbox"
       className="checkbox checkbox-secondary checkbox-sm cursor-pointer float-left mr-4 ml-0"
+      //TODO: Change _id from parameter to event
       onChange={() => completeTask(task._id)}
     />
   );

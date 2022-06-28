@@ -1,7 +1,16 @@
 import React from "react";
 
-export const Dropdown = ({ removeTask, task }) => {
+interface DropdownInterface {
+  removeTask: React.ChangeEvent<HTMLInputElement>;
+  task: {
+    completed: boolean;
+    _id: string;
+  };
+}
+
+export const Dropdown = ({ removeTask, task }: DropdownInterface) => {
   return (
+    // TODO: Export SVG
     <div className="dropdown">
       <label tabIndex={0}>
         <svg
@@ -24,6 +33,7 @@ export const Dropdown = ({ removeTask, task }) => {
         tabIndex={0}
         className="dropdown-content menu p-1 shadow bg-base-100 rounded-md w-22"
       >
+        {/* TODO: Change _id from parameter to event */}
         <li onClick={() => removeTask(task._id)} data-testid="task-delete">
           <a className="hover:bg-white">
             <svg
