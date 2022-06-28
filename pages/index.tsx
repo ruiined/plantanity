@@ -1,8 +1,9 @@
-import { Tasks } from "./tasks";
-import { Navbar } from "../components/main/navbar";
-import { Footer } from "../components/main/footer";
-import { ToastContainer } from "react-toastify";
-import Head from "next/head";
+import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
+
+import { Footer } from '../components/main/footer';
+import { Navbar } from '../components/main/navbar';
+import { Tasks } from './tasks';
 
 const Home = () => {
   return (

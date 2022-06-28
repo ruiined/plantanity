@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+
 export function Footer({}) {
   return (
     <footer className="footer p-4 bg-white shadow md:flex md:items-center md:justify-between md:p-6">

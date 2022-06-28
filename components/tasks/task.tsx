@@ -1,7 +1,7 @@
-import React from "react";
-import axios from "axios";
-import { Checkbox } from "./task/checkbox";
-import { Dropdown } from "./task/dropdown";
+import React from 'react';
+
+import { Checkbox } from './task/checkbox';
+import { Dropdown } from './task/dropdown';
 
 export const Task = ({ task, editTask, removeTask, completeTask }) => {
   return (

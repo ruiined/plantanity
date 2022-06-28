@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import axios from "axios";
-// import { toast } from "react-toastify";
-import { statusToast } from "@components/notifications/toast";
-import { Task } from "@components/tasks/task";
-import { AddTask } from "@components/tasks/add";
-import { taskListState, taskItemState } from "@lib/recoil/atoms";
+import { statusToast } from '@components/notifications/toast';
+import { AddTask } from '@components/tasks/add';
+import { Task } from '@components/tasks/task';
+import { taskItemState, taskListState } from '@lib/recoil/atoms';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 
 // export declare interface Task {
 //   _id: string;

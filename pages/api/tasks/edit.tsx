@@ -1,6 +1,7 @@
+import { connectDB } from '@lib/db';
+import Task from '@models/task';
+
 import type { NextApiRequest, NextApiResponse } from "next";
-import { connectDB } from "@lib/db";
-import Task from "@models/task";
 
 const editTask = async (req: NextApiRequest, res: NextApiResponse) => {
   let task = req.query.task;
