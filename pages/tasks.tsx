@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import axios from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+import { Toast } from "@components/notifications/toast";
 import { Task } from "@components/tasks/task";
 import { AddTask } from "@components/tasks/add";
 import { taskListState, taskItemState } from "@lib/recoil/atoms";
 
-export declare interface Task {
-  _id: string;
-  title: string;
-  completed: boolean;
-}
+// export declare interface Task {
+//   _id: string;
+//   title: string;
+//   completed: boolean;
+// }
 
 export const Tasks = () => {
   const [task, setTask] = useRecoilState(taskItemState);
@@ -20,15 +21,7 @@ export const Tasks = () => {
     e.preventDefault();
     axios.post("/api/tasks/add?task=" + task).then(() => {
       loadTasks();
-      toast.success("Task added!", {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      Toast("success", "Task added!");
     });
     setTask("");
   };
@@ -36,15 +29,7 @@ export const Tasks = () => {
   const removeTask = (rtask: string) => {
     axios.post("/api/tasks/remove?task=" + rtask).then(() => {
       loadTasks();
-      toast.warn("Task deleted", {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      Toast("warn", "Task removed!")
     });
   };
 
