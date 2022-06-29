@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Checkbox } from "./task/checkbox";
-import { Dropdown } from "./task/dropdown";
+import { Checkbox } from "./view/checkbox";
+import { Dropdown } from "./view/dropdown";
 
 interface TaskInterface {
   completeTask: React.ChangeEvent<HTMLInputElement>;

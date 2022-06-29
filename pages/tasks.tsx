@@ -1,29 +1,22 @@
 import { statusToast } from '@components/notifications/toast';
-import { AddTask } from '@components/tasks/add';
+import { AddTask } from '@components/tasks/add/form';
 import { Task } from '@components/tasks/task';
-import { taskItemState, taskListState } from '@lib/recoil/atoms';
+import { taskListState } from '@lib/state/atoms';
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
-// export declare interface Task {
-//   _id: string;
-//   title: string;
-//   completed: boolean;
-// }
-
 export const Tasks = () => {
-  const [task, setTask] = useRecoilState(taskItemState);
   const [tasks, setTasks] = useRecoilState(taskListState);
 
-  const addTask = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    axios.post("/api/tasks/add?task=" + task).then(() => {
-      loadTasks();
-      statusToast("success", "Task added!");
-    });
-    setTask("");
-  };
+  // const addTask = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   e.preventDefault();
+  //   axios.post("/api/tasks/add?task=" + task).then(() => {
+  //     loadTasks();
+  //     statusToast("success", "Task added!");
+  //   });
+  //   setTask("");
+  // };
 
   const removeTask = (rtask: string) => {
     axios.post("/api/tasks/remove?task=" + rtask).then(() => {
@@ -32,10 +25,10 @@ export const Tasks = () => {
     });
   };
 
-  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setTask(e.target.value);
-  };
+  // const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   e.preventDefault();
+  //   setTask(e.target.value);
+  // };
 
   const editTask = (etask: string, taskId: string) => {
     axios
@@ -55,7 +48,7 @@ export const Tasks = () => {
 
   useEffect(() => {
     loadTasks();
-  }, []);
+  }, [tasks]);
 
   //   if (status === "loading") {
   //     return <img alt="Loading" width={61} height={61} src="/loader.gif" />;
@@ -70,7 +63,7 @@ export const Tasks = () => {
   return (
     <div className="w-full h-full flex-grow pt-12 overflow-auto">
       <div className="w-full h-full flex-grow p-3 overflow-auto">
-        <AddTask task={task} addTask={addTask} changeHandler={changeHandler} />
+        <AddTask />
         <div
           data-testid="task-list"
           className="grid grid-cols-4 pt-3 mt-4 mb-12 mx-6"
